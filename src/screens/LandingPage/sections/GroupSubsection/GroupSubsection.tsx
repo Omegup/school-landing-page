@@ -11,7 +11,6 @@ import {
 import { navigationItems } from "../../../../config/navigation";
 import { useActiveSection } from "../../../../hooks/useActiveSection";
 import { useScrollContext } from "../../../../contexts/ScrollContext";
-import { useState } from "react";
 
 export const GroupSubsection = (): JSX.Element => {
   const activeSection = useActiveSection();
@@ -35,26 +34,18 @@ export const GroupSubsection = (): JSX.Element => {
     >
       <div className="flex items-center gap-2.5">
         <div className=" w-full h-auto">
-          <div className=" w-full h-auto bg-[url(/vector-1.svg)] bg-[100%_100%]">
+          <div className=" w-full h-auto bg-[100%_100%]">
             <img
               className=" w-8 h-8 top-0 left-0"
-              alt="SchoolUP logo icon"
+              alt="ForFellow logo icon"
               src="/vector-4.svg"
             />
           </div>
-          <img
-            className="absolute w-4 h-1 top-9 left-2"
-            alt="Logo accent line"
-            src="/vector.svg"
-          />
         </div>
 
         <div className="relative w-fit mr-[-1.15px] [font-family:'Krona_One',Helvetica] font-normal text-transparent text-xl text-center leading-5 whitespace-nowrap">
-          <span className="text-[#323232] tracking-[var(--mysticgrove-whisperingxs-letter-spacing)] leading-[var(--mysticgrove-whisperingxs-line-height)] font-mysticgrove-whisperingxs [font-style:var(--mysticgrove-whisperingxs-font-style)] font-[number:var(--mysticgrove-whisperingxs-font-weight)] text-[length:var(--mysticgrove-whisperingxs-font-size)]">
-            School-
-          </span>
           <span className="text-[#3879f0] tracking-[var(--mysticgrove-whisperingxs-letter-spacing)] leading-[var(--mysticgrove-whisperingxs-line-height)] font-mysticgrove-whisperingxs [font-style:var(--mysticgrove-whisperingxs-font-style)] font-[number:var(--mysticgrove-whisperingxs-font-weight)] text-[length:var(--mysticgrove-whisperingxs-font-size)]">
-            UP
+            ForFellow
           </span>
         </div>
       </div>
@@ -91,7 +82,9 @@ export const GroupSubsection = (): JSX.Element => {
                 >
                   <div
                     className={`relative w-fit mt-[-1.00px] [font-family:'Quicksand',Helvetica] font-medium text-xs lg:text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap  ${
-                      activeSection === item.id ? "text-light-blue" : "text-black"
+                      activeSection === item.id
+                        ? "text-light-blue"
+                        : "text-black"
                     }`}
                   >
                     {t(item.labelKey)}

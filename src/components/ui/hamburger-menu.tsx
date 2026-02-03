@@ -12,11 +12,11 @@ interface HamburgerMenuProps {}
 export const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const activeSection = useActiveSection();
-  const { i18n, t } = useTranslation('navigation');
+  const { i18n, t } = useTranslation("navigation");
   const { scrollToSection } = useScrollContext();
 
   const toggleLanguage = () => {
-    const newLanguage = i18n.language === 'fr' ? 'en' : 'fr';
+    const newLanguage = i18n.language === "fr" ? "en" : "fr";
     i18n.changeLanguage(newLanguage);
   };
   useEffect(() => {
@@ -58,18 +58,15 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
               <img src="/Logo.svg" alt="logo" />
             </div>
             <div className="text-center justify-start text-nowrap">
-              <span className="text-zinc-800 text-xl font-normal font-['Krona_One'] leading-snug">
-                School-
-              </span>
               <span className="text-blue-500 text-xl font-normal font-['Krona_One'] leading-snug">
-                UP
+                Forfellow
               </span>
             </div>
           </div>
           <div className="self-stretch flex flex-col justify-start items-start gap-6">
             {navigationItems.map((navItem, index) => {
               const isActive = activeSection === navItem.id;
-              
+
               if (navItem.labelKey === "pricing") {
                 return (
                   <ContactDialog key={navItem.id}>
@@ -85,7 +82,7 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
                   </ContactDialog>
                 );
               }
-              
+
               return (
                 <div
                   onClick={() => handleNavClick(navItem.id)}
@@ -106,36 +103,36 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
             })}
           </div>
           <div className="self-stretch flex flex-col justify-center items-center gap-4">
-              <div
-                onClick={toggleLanguage}
-                className="inline-flex items-center gap-[5px] relative flex-[0_0_auto]  md:flex"
-              >
-                <img
-                  className="relative w-6 h-6"
-                  alt="Language circle"
-                  src="/language-circle.svg"
-                />
-                <div className="relative w-fit [font-family:'Quicksand',Helvetica] font-medium text-grey text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap">
-                  {i18n.language.toUpperCase()}
-                </div>
-                <ChevronDownIcon className="relative w-[21px] h-[21px]" />
+            <div
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-[5px] relative flex-[0_0_auto]  md:flex"
+            >
+              <img
+                className="relative w-6 h-6"
+                alt="Language circle"
+                src="/language-circle.svg"
+              />
+              <div className="relative w-fit [font-family:'Quicksand',Helvetica] font-medium text-grey text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap">
+                {i18n.language.toUpperCase()}
               </div>
+              <ChevronDownIcon className="relative w-[21px] h-[21px]" />
+            </div>
             <ContactDialog>
               <div
                 data-property-1="Selected"
                 className="self-stretch h-8 px-2.5 py-[5px] bg-[#3879f0] rounded-[20px] inline-flex justify-center items-center gap-2.5 cursor-pointer"
               >
                 <div className="text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
-                  {t('demo')}
+                  {t("demo")}
                 </div>
                 <div className="w-6 h-6 relative origin-top-left rotate-[-25deg]">
                   <img
                     className="relative w-[31.89px] h-[31.89px] mt-[3px] mb-[-3.95px]"
                     alt="Arrow pointing right"
                     src="/vuesax-linear-arrow-right.svg"
-                />
+                  />
+                </div>
               </div>
-            </div>
             </ContactDialog>
           </div>
         </div>

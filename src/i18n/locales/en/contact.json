@@ -1,8 +1,8 @@
 {
   "title": "Contact Us",
   "subtitle": {
-    "part1": "At School-",
-    "part2": "UP",
+    "part1": "At ",
+    "part2": "Forfelllow",
     "part3": ", we believe in open communication. Whether you have a question, need a quote, or want to discuss a project, we're here to help. Contact us and discover the power of our school management expertise."
   },
   "form": {
@@ -58,7 +58,7 @@
       "email": "contact@omegup.tn",
       "phone": "+216 28 827 941"
     },
-    "description": "Follow School-UP on our social networks for daily updates, tips and inspirations related to education and school management. Let's share together!",
+    "description": "Follow Forfellow on our social networks for daily updates, tips and inspirations related to education and school management. Let's share together!",
     "followUs": "Follow us",
     "copyright": "Copyright Notice: © 2025 Omegup. All rights reserved."
   }

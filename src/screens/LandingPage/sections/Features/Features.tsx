@@ -1,9 +1,8 @@
-import React, { useState, useMemo } from "react";
-import { Button } from "../../../../components/ui/button";
-import { Card, CardContent } from "../../../../components/ui/card";
-import { useSchoolUpData } from "../../../../lib/schoolUp-data";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Button } from "../../../../components/ui/button";
 import { navigationItems } from "../../../../config/navigation";
+import { useSchoolUpData } from "../../../../lib/schoolUp-data";
 
 export const SectionComponentNodeSubsection = (): JSX.Element => {
   const [activeMainTab, setActiveMainTab] = useState("admin");
@@ -135,8 +134,8 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5  w-full flex-[0_0_auto]  md:h-[524px] ">
-            <div className="flex  flex-col items-start  gap-3 md:gap-[15px]   h-full overflow-scroll">
+          <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full flex-[0_0_auto] md:h-[524px]">
+            <div className="flex flex-col items-start gap-3 md:gap-[15px] h-full overflow-scroll order-2 md:order-1">
               {features.map(
                 (
                   feature: { title: string; description: string },
@@ -144,7 +143,7 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
                 ) => (
                   <div
                     key={index}
-                    className="relative   [font-family:'Quicksand',Helvetica] font-normal text-black text-sm md:text-base tracking-[0] leading-4 md:leading-4"
+                    className="relative [font-family:'Quicksand',Helvetica] font-normal text-black text-sm md:text-base tracking-[0] leading-4 md:leading-4"
                   >
                     <span className="font-[number:var(--quicksand-easyread-semibold-font-weight)] leading-[var(--quicksand-easyread-semibold-line-height)] font-quicksand-easyread-semibold [font-style:var(--quicksand-easyread-semibold-font-style)] tracking-[var(--quicksand-easyread-semibold-letter-spacing)] text-[length:var(--quicksand-easyread-semibold-font-size)]">
                       {feature.title}
@@ -168,9 +167,8 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
                 )
               )}
             </div>
-            <div
-              className={`flex flex-1 min-w-fit md:justify-end justify-stretch gap-5  overflow-scroll w-full h-full`}
-            >
+
+            <div className="flex flex-1 min-w-fit md:justify-end justify-stretch gap-5 overflow-scroll w-full h-full order-1 md:order-2">
               {images.map((image: string, index: number) => (
                 <img
                   key={image}
@@ -178,7 +176,7 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
                   alt={`${currentMainTab?.label} - ${activeSubTab} - ${
                     index + 1
                   }`}
-                  className={`object-contain ${
+                  className={`object-contain rounded-[10px] ${
                     activeMainTab === "admin"
                       ? "md:max-w-[734px]"
                       : "md:min-w-[216px] md:w-auto"
