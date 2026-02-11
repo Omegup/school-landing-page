@@ -257,7 +257,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
             </div>
 
             <div className="flex items-start justify-between relative flex-1 self-stretch w-full grow">
-              <div className="flex mw-[228px] items-start gap-1 relative">
+              <div className="flex items-start gap-1 relative w-full h-full">
                 <Textarea
                   {...register("message", {
                     required: t("form.validation.messageRequired"),
