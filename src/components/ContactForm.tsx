@@ -58,7 +58,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams(
-          Array.from(Object.entries(data)).map(([k, v]) => [k, String(v)])
+          Array.from(Object.entries({ "form-name": "contact", ...data })).map(
+            ([k, v]) => [k, String(v)]
+          )
         ).toString(),
         signal: controller.signal,
       });
