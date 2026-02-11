@@ -126,6 +126,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         netlify-honeypot="bot-field"
         className="flex flex-col items-center justify-center gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]"
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col items-start relative">
             <div className="flex flex-col items-start gap-3 px-4 py-0 relative self-stretch w-full flex-[0_0_auto] bg-white rounded-[15px] md:rounded-[20px] border border-solid border-[#828282]">
