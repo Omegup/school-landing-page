@@ -101,7 +101,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-1.png"],
+            images: ["/admin/admin-1.jpg"],
           },
           schedule: {
             features: [
@@ -154,7 +154,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-2.png"],
+            images: ["/admin/admin-2.jpg"],
           },
           fees: {
             features: [
@@ -177,7 +177,7 @@ export const useSchoolUpData = () => {
                 description: t("mainTabs.admin.features.fees.fees.description"),
               },
             ],
-            images: ["/admin/admin-3.png"],
+            images: ["/admin/admin-3.jpg"],
           },
           invoice: {
             features: [
@@ -204,7 +204,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-4.png"],
+            images: ["/admin/admin-4.jpg"],
           },
           evaluation: {
             features: [
@@ -233,7 +233,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-5.png"],
+            images: ["/admin/admin-5.jpg"],
           },
           grades: {
             features: [
@@ -258,7 +258,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-6.png"],
+            images: ["/admin/admin-6.jpg"],
           },
           forms: {
             features: [
@@ -303,7 +303,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-7.png"],
+            images: ["/admin/admin-7.jpg"],
           },
           reports: {
             features: [
@@ -352,7 +352,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/admin/admin-8.png"],
+            images: ["/admin/admin-8.jpg"],
           },
         },
       },
@@ -587,7 +587,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/teacher/4.png","/teacher/5.png","/teacher/6.png"],
+            images: ["/teacher/4.png", "/teacher/5.png", "/teacher/6.png"],
           },
           reports: {
             features: [
@@ -616,7 +616,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/teacher/7.png","/teacher/8.png"],
+            images: ["/teacher/7.png", "/teacher/8.png"],
           },
         },
       },
@@ -716,7 +716,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/parent/Frame.png","/parent/Frame-1.png"],
+            images: ["/parent/Frame.png", "/parent/Frame-1.png"],
           },
           fees: {
             features: [
@@ -743,7 +743,11 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/parent/Frame-2.png","/parent/Frame-3.png","/parent/Frame-4.png"],
+            images: [
+              "/parent/Frame-2.png",
+              "/parent/Frame-3.png",
+              "/parent/Frame-4.png",
+            ],
           },
           schedule: {
             features: [
@@ -822,7 +826,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/parent/Frame-7.png","/parent/Frame-8.png"],
+            images: ["/parent/Frame-7.png", "/parent/Frame-8.png"],
           },
           Resultat: {
             features: [
@@ -849,7 +853,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/parent/Frame-9.png","/parent/Frame-10.png"],
+            images: ["/parent/Frame-9.png", "/parent/Frame-10.png"],
           },
         },
       },
@@ -904,7 +908,7 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/student/Frame.png","/student/Frame-1.png"],
+            images: ["/student/Frame.png", "/student/Frame-1.png"],
           },
           messagerie: {
             features: [
@@ -933,7 +937,11 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/student/Frame-2.png","/student/Frame-3.png","/student/Frame-4.png"],
+            images: [
+              "/student/Frame-2.png",
+              "/student/Frame-3.png",
+              "/student/Frame-4.png",
+            ],
           },
           grades: {
             features: [
@@ -989,7 +997,11 @@ export const useSchoolUpData = () => {
                 ),
               },
             ],
-            images: ["/student/Frame-6.png","/student/Frame-7.png","/student/Frame-8.png"],
+            images: [
+              "/student/Frame-6.png",
+              "/student/Frame-7.png",
+              "/student/Frame-8.png",
+            ],
           },
         },
       },
