@@ -119,6 +119,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       </div>
 
       <form
+        name="contact"
         onSubmit={handleSubmit(onSubmit)}
         method="POST"
         data-netlify="true"
