@@ -50,9 +50,9 @@ export const FrameSubsection = (): JSX.Element => {
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-[15px] relative w-full flex-[0_0_auto]">
             <ContactDialog>
-              <button 
+              <button
                 className="h-8 px-2.5 py-[5px] bg-[#3879F0]  hover:opacity-75 rounded-[20px] inline-flex justify-center items-center gap-2.5"
-                aria-label="Request a demo of SchoolUP"
+                aria-label="Request a demo of Forfellow"
               >
                 <div className="text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
                   {t("demoButton")}
@@ -67,7 +67,7 @@ export const FrameSubsection = (): JSX.Element => {
             <button
               onClick={handleFeaturesClick}
               className="px-2.5 py-[5px] hover:bg-indigo-100 hover:text-[#3879F0] rounded-[20px] inline-flex justify-center items-center gap-[5px]"
-              aria-label="View SchoolUP features"
+              aria-label="View Forfellow features"
             >
               <svg
                 width="24"
@@ -113,7 +113,7 @@ export const FrameSubsection = (): JSX.Element => {
         </CardContent>
         <img
           src={heroBackground}
-          alt="SchoolUP platform dashboard showing student management interface and educational tools"
+          alt="Forfellow platform dashboard showing student management interface and educational tools"
           className="block rounded-[50px] border-[5px] rounded-b-none  border-b-0 border-solid border-[#494949] bg-cover bg-[50%_50%] h-auto w-full object-contain"
         />
       </Card>

@@ -2,12 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ContactForm } from "../../../../components/ContactForm";
 import { navigationItems } from "../../../../config/navigation";
-
-const useSearchParamsSafe = () => {
-  return typeof window !== "undefined"
-    ? new URLSearchParams(window.location.search)
-    : new URLSearchParams();
-};
+import { Logo } from "./Logo";
 
 const socialIcons = [
   "/social-4.svg",
@@ -37,7 +32,6 @@ const contactInfo = [
 
 export const Frame2Subsection = (): JSX.Element => {
   const { t } = useTranslation("contact");
-  const [searchParams] = useSearchParamsSafe();
   const [isDesktop, setIsDesktop] = useState(false);
 
   const quickLinks = [
@@ -72,29 +66,9 @@ export const Frame2Subsection = (): JSX.Element => {
         <div className="inline-flex flex-col  items-start gap-2.5 relative flex-[0_0_auto] w-full md:w-auto">
           <div className="inline-flex flex-col items-start gap-2.5 relative flex-[0_0_auto]">
             <div className="flex w-[170.85px] items-center gap-2.5 relative flex-[0_0_auto]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="40"
-                viewBox="0 0 32 40"
-                fill="none"
-              >
-                <path
-                  opacity="0.4"
-                  d="M30.1037 8.71815C28.0494 4.51764 24.079 1.41726 19.4765 0.39714C14.6568 -0.682991 9.71852 0.477149 5.94568 3.55752C2.15309 6.61789 0 11.1984 0 16.099C0 21.2797 3.06173 26.7003 7.68395 29.8407V31.5009C7.6642 32.061 7.64444 32.9211 8.31605 33.6212C9.00741 34.3412 10.0346 34.4213 10.8444 34.4213H20.9778C22.0444 34.4213 22.8543 34.1212 23.4074 33.5611C24.158 32.7811 24.1383 31.7809 24.1185 31.2409V29.8407C30.242 25.6602 34.0938 16.8391 30.1037 8.71815Z"
-                  fill="#DEEAFF"
-                />
-                <path
-                  d="M22.3011 40.002C22.1825 40.002 22.0443 39.982 21.9258 39.942C17.9554 38.8018 13.7875 38.8018 9.81711 39.942C9.08625 40.142 8.31588 39.7219 8.11835 38.9818C7.90106 38.2417 8.33563 37.4617 9.0665 37.2616C13.5307 35.9815 18.2319 35.9815 22.6961 37.2616C23.427 37.4817 23.8616 38.2417 23.6443 38.9818C23.4467 39.6019 22.8937 40.002 22.3011 40.002Z"
-                  fill="#DEEAFF"
-                />
-                <path
-                  d="M16 0.00195312C7.168 0.00195312 0 7.26043 0 16.2039C0 25.1474 7.168 32.4059 16 32.4059C24.832 32.4059 32 25.1474 32 16.2039C32 7.26043 24.832 0.00195312 16 0.00195312ZM24 24.7099H19.04C18.56 24.7099 18.128 24.4345 17.936 23.9808C17.744 23.5272 17.824 23.0249 18.144 22.6685L20.736 19.7683C21.808 18.5532 22.416 17.014 22.416 15.4262C22.416 13.806 21.76 12.283 20.56 11.1327C19.36 9.98236 17.696 9.31808 16 9.31808C14.304 9.31808 12.64 9.98236 11.44 11.1327C10.24 12.283 9.584 13.806 9.584 15.4262C9.584 17.014 10.176 18.5532 11.264 19.7683L13.84 22.6847C14.16 23.0411 14.24 23.5596 14.048 23.9971C13.856 24.4345 13.424 24.7261 12.944 24.7261H8C7.344 24.7261 6.8 24.1753 6.8 23.511C6.8 22.8467 7.344 22.2796 8 22.2796H10.256L9.472 21.4047C8 19.7521 7.184 17.6297 7.184 15.4262C7.184 13.1741 8.128 10.9545 9.792 9.36668C11.456 7.76269 13.648 6.88779 16 6.88779C18.352 6.88779 20.544 7.76269 22.208 9.36668C23.856 10.9545 24.816 13.1741 24.816 15.4262C24.816 17.6135 24 19.7359 22.528 21.4047L21.744 22.2796H24C24.656 22.2796 25.2 22.8305 25.2 23.4948C25.2 24.1591 24.656 24.7099 24 24.7099Z"
-                  fill="#DEEAFF"
-                />
-              </svg>
+              <Logo width="30" height="30" />
               <div className="relative w-fit mr-[-1.15px] font-mysticgrove-whisperingxs font-[number:var(--mysticgrove-whisperingxs-font-weight)] text-light-blue text-[length:var(--mysticgrove-whisperingxs-font-size)] text-center tracking-[var(--mysticgrove-whisperingxs-letter-spacing)] leading-[var(--mysticgrove-whisperingxs-line-height)] whitespace-nowrap [font-style:var(--mysticgrove-whisperingxs-font-style)]">
-                School-UP
+                Forfellow
               </div>
             </div>
 
