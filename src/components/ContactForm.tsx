@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 
-interface FormData {
+interface XFormData {
   name: string;
   email: string;
   phone: string;
@@ -27,7 +27,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>({
+  } = useForm<XFormData>({
     defaultValues: {
       name: "",
       email: "",
@@ -36,7 +36,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     },
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: XFormData) => {
     // Check for validation errors before submitting
     if (Object.keys(errors).length > 0) {
       toast.error(t("form.messages.validationError"));
@@ -55,9 +55,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       const response = await fetch("/", {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(data),
+        body: new URLSearchParams(
+          Array.from(Object.entries(data)).map(([k, v]) => [k, String(v)])
+        ).toString(),
         signal: controller.signal,
       });
 
