@@ -52,17 +52,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
-      const response = await fetch(
-        "https://schoolup-landing-page.onrender.com/api/send-email",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-          signal: controller.signal,
-        }
-      );
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: JSON.stringify(data),
+        signal: controller.signal,
+      });
 
       clearTimeout(timeoutId);
       toast.dismiss(sendingToast);
@@ -120,7 +117,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       </div>
 
       <form
-        netlify
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center justify-center gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]">
