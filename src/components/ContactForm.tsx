@@ -125,6 +125,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         onSubmit={handleSubmit(onSubmit)}
         method="POST"
         data-netlify="true"
+        action="/"
         netlify-honeypot="bot-field"
         className="flex flex-col items-center justify-center gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]"
       >
