@@ -120,7 +120,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       </div>
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        netlify
         className="flex flex-col items-center justify-center gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-[25px] relative self-stretch w-full flex-[0_0_auto]">
@@ -312,7 +312,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           disabled={isSubmitting}
           className="inline-flex items-center gap-2 md:gap-2.5 px-4 md:px-5 py-2.5 relative flex-[0_0_auto] bg-blue rounded-[22px]  hover:opacity-75 h-auto hover:bg-blue/90 w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <SendIcon className="relative w-5 h-5 md:w-6 md:h-6" /> 
+          <SendIcon className="relative w-5 h-5 md:w-6 md:h-6" />
           <span className="relative w-fit mt-[-1.00px] font-quicksand-easyread-semibold font-[number:var(--quicksand-easyread-semibold-font-weight)] text-light-blue text-[length:var(--quicksand-easyread-semibold-font-size)] tracking-[var(--quicksand-easyread-semibold-letter-spacing)] leading-[var(--quicksand-easyread-semibold-line-height)] whitespace-nowrap [font-style:var(--quicksand-easyread-semibold-font-style)]">
             {isSubmitting ? t("form.submit.sending") : t("form.submit.send")}
           </span>
