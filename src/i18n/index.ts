@@ -25,6 +25,19 @@ import enData from './locales/en/data.json';
 import enDemo from './locales/en/demo.json';
 import enAdvantages from './locales/en/advantages.json';
 
+const enBundle = {
+  common: enCommon,
+  navigation: enNavigation,
+  hero: enHero,
+  about: enAbout,
+  features: enFeatures,
+  contact: enContact,
+  spaces: enSpaces,
+  data: enData,
+  demo: enDemo,
+  advantages: enAdvantages,
+};
+
 const resources = {
   fr: {
     common: frCommon,
@@ -38,18 +51,9 @@ const resources = {
     demo: frDemo,
     advantages: frAdvantages,
   },
-  en: {
-    common: enCommon,
-    navigation: enNavigation,
-    hero: enHero,
-    about: enAbout,
-    features: enFeatures,
-    contact: enContact,
-    spaces: enSpaces,
-    data: enData,
-    demo: enDemo,
-    advantages: enAdvantages,
-  },
+  en: enBundle,
+  // Arabic UI: English copy until dedicated AR strings exist
+  ar: enBundle,
 };
 
 i18n
@@ -58,11 +62,14 @@ i18n
   .init({
     resources,
     fallbackLng: 'fr',
+    supportedLngs: ['fr', 'en', 'ar'],
+    nonExplicitSupportedLngs: true,
     defaultNS: 'common',
-    lng: 'fr', // Set French as default
-    
+    lng: 'fr',
+
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+      lookupQuerystring: 'lang',
       caches: ['localStorage'],
     },
 

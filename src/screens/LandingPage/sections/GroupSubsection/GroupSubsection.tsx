@@ -1,6 +1,7 @@
-import { ChevronDownIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { ContactDialog } from "../../../../components/ContactDialog";
+import { DemoPortalLink } from "../../../../components/DemoPortalLink";
+import { LanguageSwitcher } from "../../../../components/ui/language-switcher";
 import { HamburgerMenu } from "../../../../components/ui/hamburger-menu";
 import {
   NavigationMenu,
@@ -14,13 +15,8 @@ import { useScrollContext } from "../../../../contexts/ScrollContext";
 
 export const GroupSubsection = (): JSX.Element => {
   const activeSection = useActiveSection();
-  const { t, i18n } = useTranslation("navigation");
+  const { t } = useTranslation("navigation");
   const { scrollToSection } = useScrollContext();
-
-  const toggleLanguage = () => {
-    const newLanguage = i18n.language === "fr" ? "en" : "fr";
-    i18n.changeLanguage(newLanguage);
-  };
 
   const handleNavClick = (sectionId: string) => {
     console.log("Navigating to section:", sectionId);
@@ -97,32 +93,17 @@ export const GroupSubsection = (): JSX.Element => {
       </NavigationMenu>
 
       <div className="inline-flex items-center gap-3 md:gap-[18px] hidden lg:flex">
-        <div
-          onClick={toggleLanguage}
-          className="inline-flex items-center gap-[5px] relative flex-[0_0_auto] hidden md:flex"
-        >
-          <img
-            className="relative w-6 h-6"
-            alt="Language circle"
-            src="/language-circle.svg"
-          />
-          <div className="relative w-fit [font-family:'Quicksand',Helvetica] font-medium text-grey text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap">
-            {i18n.language.toUpperCase()}
+        <LanguageSwitcher className="hidden md:inline-flex" />
+        <DemoPortalLink className="h-8 px-2.5 py-[5px] bg-[#3879F0] hover:opacity-75 rounded-[20px] inline-flex justify-center items-center gap-2.5">
+          <div className="whitespace-nowrap text-ellipsis overflow-hidden text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
+            {t("demo")}
           </div>
-          <ChevronDownIcon className="relative w-[21px] h-[21px]" />
-        </div>
-        <ContactDialog>
-          <button className="h-8 px-2.5 py-[5px] bg-[#3879F0] hover:opacity-75 rounded-[20px] inline-flex justify-center items-center gap-2.5">
-            <div className="whitespace-nowrap text-ellipsis overflow-hidden text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
-              {t("demo")}
-            </div>
-            <img
-              className="relative w-[24px] h-[24px] mt-[-3.95px] mb-[-3.95px]"
-              alt="Arrow pointing right"
-              src="/vuesax-linear-arrow-right.svg"
-            />
-          </button>
-        </ContactDialog>
+          <img
+            className="relative w-[24px] h-[24px] mt-[-3.95px] mb-[-3.95px]"
+            alt=""
+            src="/vuesax-linear-arrow-right.svg"
+          />
+        </DemoPortalLink>
       </div>
     </section>
   );
