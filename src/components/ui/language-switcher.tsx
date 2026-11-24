@@ -73,7 +73,7 @@ export function LanguageSwitcher({
       {open && (
         <ul
           role="listbox"
-          className={`absolute right-0 z-[70] min-w-[160px] overflow-hidden rounded-2xl border border-[#d5e4ff] bg-white py-1 shadow-lg ${
+          className={`absolute right-0 z-[70] min-w-[160px] overflow-hidden rounded-2xl ios-glass border border-[rgba(255,255,255,0.8)] py-1 ${
             placement === "top"
               ? "bottom-[calc(100%+8px)]"
               : "top-[calc(100%+8px)]"
@@ -87,7 +87,7 @@ export function LanguageSwitcher({
                 className={`w-full px-3 py-2 text-left text-sm font-medium font-['Quicksand'] ${
                   lang.code === current
                     ? "bg-[#3879f0] text-white"
-                    : "text-[#323232] hover:bg-[#DEEAFF]"
+                    : "text-[#323232] hover:bg-[rgba(255,255,255,0.6)]"
                 }`}
               >
                 <span className="inline-flex w-full items-center justify-between gap-3">

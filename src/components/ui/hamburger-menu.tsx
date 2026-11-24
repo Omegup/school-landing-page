@@ -42,27 +42,25 @@ export const HamburgerMenu: React.FC = () => {
       )}
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-between gap-6 overflow-y-auto bg-[#f4f8ff] p-6">
-          <div className="flex w-full items-center justify-between">
-            <div className="inline-flex items-center gap-2.5">
-              <div className="w-8 h-10 relative">
-                <img src="/Logo.svg" alt="logo" />
-              </div>
-              <span className="text-blue-500 text-xl font-normal font-['Krona_One'] leading-snug">
-                Forfellow
-              </span>
+        <div className="ios-glass fixed inset-0 z-50 inline-flex flex-col items-center justify-between p-12 outline outline-1 outline-offset-[-1px] [outline-color:rgba(255,255,255,0.9)]">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsOpen(false)}
+            className="absolute right-6 top-6 p-2 [&_svg]:size-6"
+            aria-label="Close navigation menu"
+          >
+            <X className="h-6 w-6 text-black" />
+          </Button>
+          <div className="inline-flex w-44 items-center gap-2.5">
+            <div className="relative h-10 w-8">
+              <img src="/Logo.svg" alt="logo" />
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(false)}
-              className="p-2 [&_svg]:size-6"
-              aria-label="Close navigation menu"
-            >
-              <X className="h-6 w-6 text-black" />
-            </Button>
+            <span className="text-nowrap text-center font-['Krona_One'] text-xl font-normal leading-snug text-blue-500">
+              Forfellow
+            </span>
           </div>
-          <div className="flex flex-col items-stretch gap-2">
+          <div className="flex flex-col items-start gap-6 self-stretch">
             {navigationItems.map((navItem) => {
               const isActive = activeSection === navItem.id;
 
@@ -88,7 +86,7 @@ export const HamburgerMenu: React.FC = () => {
                 >
                   <div
                     className={`text-center ${
-                      isActive ? "text-white" : "text-[#323232]"
+                      isActive ? "text-indigo-100" : "text-[#323232]"
                     } text-sm font-medium font-['Quicksand'] leading-tight`}
                   >
                     {t(navItem.labelKey)}
@@ -97,17 +95,19 @@ export const HamburgerMenu: React.FC = () => {
               );
             })}
           </div>
-          <div className="flex flex-col items-center gap-4 pb-2">
+          <div className="flex flex-col items-center justify-center gap-4 self-stretch">
             <LanguageSwitcher placement="top" />
-            <DemoPortalLink className="h-8 w-full px-2.5 py-[5px] bg-[#3879f0] rounded-[20px] inline-flex justify-center items-center gap-2.5 cursor-pointer">
-              <div className="text-center text-white text-sm font-medium font-['Quicksand'] leading-tight">
+            <DemoPortalLink className="inline-flex h-8 cursor-pointer items-center justify-center gap-2.5 self-stretch rounded-[20px] bg-[#3879f0] px-2.5 py-[5px]">
+              <div className="text-center font-['Quicksand'] text-sm font-medium leading-tight text-indigo-100">
                 {t("demo")}
               </div>
-              <img
-                className="relative w-6 h-6"
-                alt=""
-                src="/vuesax-linear-arrow-right.svg"
-              />
+              <div className="relative h-6 w-6 origin-top-left rotate-[-25deg]">
+                <img
+                  className="relative mb-[-3.95px] mt-[3px] h-[31.89px] w-[31.89px]"
+                  alt=""
+                  src="/vuesax-linear-arrow-right.svg"
+                />
+              </div>
             </DemoPortalLink>
           </div>
         </div>

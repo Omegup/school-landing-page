@@ -34,7 +34,7 @@ export function DemoPortalLink({ children, className, ...rest }: Props) {
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
-        const code = data.error === "this email already has a demo" ? "active_demo" : (data.error || "generic")
+        const code = (data.error === "email_has_active_demo" || data.error === "this email already has a demo") ? "active_demo" : (data.error || "generic")
         setMessage(t(`demoError.${code}`, { defaultValue: t("demoError.generic") }))
         return
       }
