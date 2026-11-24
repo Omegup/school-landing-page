@@ -17,7 +17,8 @@
   "demoEmailPlaceholder": "vous@ecole.tn",
   "demoSend": "Recevoir le lien",
   "demoSending": "Envoi…",
-  "demoSent": "Lien envoyé. Il est valable 15 minutes.",
+  "demoSent": "Lien envoyé. Il est valable 15 minutes. Vérifiez aussi les courriers indésirables.",
+  "demoJunk": "Pensez à vérifier les courriers indésirables.",
   "demoError": {
     "generic": "Une erreur est survenue",
     "invalid_email": "E-mail invalide",

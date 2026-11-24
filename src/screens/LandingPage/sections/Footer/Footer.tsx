@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ContactForm } from "../../../../components/ContactForm";
 import { navigationItems } from "../../../../config/navigation";
@@ -32,7 +31,6 @@ const contactInfo = [
 
 export const Frame2Subsection = (): JSX.Element => {
   const { t } = useTranslation("contact");
-  const [isDesktop, setIsDesktop] = useState(false);
 
   const quickLinks = [
     t("footer.quickLinks.home"),
@@ -42,17 +40,6 @@ export const Frame2Subsection = (): JSX.Element => {
     t("footer.quickLinks.pricing"),
     t("footer.quickLinks.contact"),
   ];
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
 
   return (
     <>

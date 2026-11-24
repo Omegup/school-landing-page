@@ -62,7 +62,7 @@ export const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
             </div>
           </div>
           <div className="self-stretch flex flex-col justify-start items-start gap-6">
-            {navigationItems.map((navItem, index) => {
+            {navigationItems.map((navItem) => {
               const isActive = activeSection === navItem.id;
 
               if (navItem.labelKey === "pricing") {

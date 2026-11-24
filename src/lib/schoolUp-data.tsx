@@ -1,6 +1,41 @@
+import type { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
-export const useSchoolUpData = () => {
+export type MainTabId = "admin" | "teacher" | "parent" | "student";
+
+export type FeatureItem = {
+  title: string;
+  description: string;
+};
+
+export type SubTab = {
+  id: string;
+  label: string;
+};
+
+export type SubTabFeatures = {
+  features: FeatureItem[];
+  images: string[];
+};
+
+export type MainTab = {
+  id: MainTabId;
+  label: string;
+  Icon: () => ReactElement;
+  primaryBgClass: string;
+  secondaryBgClass: string;
+  primaryTextClass: string;
+  lightTextClass: string;
+  whiteTextClass: string;
+  subTabs: SubTab[];
+  featuresBySubTab: Record<string, SubTabFeatures>;
+};
+
+export type SchoolUpData = {
+  mainTabs: [MainTab, ...MainTab[]];
+};
+
+export const useSchoolUpData = (): SchoolUpData => {
   const { t } = useTranslation("data");
 
   return {

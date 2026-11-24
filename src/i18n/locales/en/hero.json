@@ -17,7 +17,8 @@
   "demoEmailPlaceholder": "you@school.com",
   "demoSend": "Email me the link",
   "demoSending": "Sending…",
-  "demoSent": "Link sent. It is valid for 15 minutes.",
+  "demoSent": "Link sent. It is valid for 15 minutes. Also check your junk folder.",
+  "demoJunk": "Check your junk or spam folder.",
   "demoError": {
     "generic": "Something went wrong",
     "invalid_email": "Invalid email",

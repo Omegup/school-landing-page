@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { DEMO_PORTAL_BASE } from "../config/demo"
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -49,36 +49,49 @@ export function DemoPortalLink({ children, className, ...rest }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <button type="button" className={className} onClick={() => setOpen(true)} {...rest}>
-        {children}
-      </button>
-      <DialogContent className="bg-white text-[#323232] max-w-md rounded-[24px] p-6">
-        <DialogTitle className="text-xl font-medium font-['Quicksand']">{t("demoTitle")}</DialogTitle>
-        <p className="text-sm text-[#5a635c] font-['Quicksand']">{t("demoLead")}</p>
-        <form onSubmit={onSubmit} className="flex flex-col gap-3">
-          <label className="text-sm font-medium font-['Quicksand']" htmlFor="demo-email">
-            {t("demoEmailLabel")}
-          </label>
-          <input
-            id="demo-email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={t("demoEmailPlaceholder")}
-            className="h-10 rounded-xl border border-[#deeaff] px-3 font-['Quicksand']"
-          />
-          <button
-            type="submit"
-            disabled={busy}
-            className="h-10 rounded-full bg-[#3879F0] text-white font-medium font-['Quicksand'] disabled:opacity-60"
-          >
-            {busy ? t("demoSending") : t("demoSend")}
-          </button>
-          {message ? (
-            <p className={`text-sm font-['Quicksand'] ${ok ? "text-[#1a7f4b]" : "text-red-600"}`}>{message}</p>
-          ) : null}
-        </form>
+      <DialogTrigger asChild>
+        <button type="button" className={className} {...rest}>
+          {children}
+        </button>
+      </DialogTrigger>
+      <DialogContent className="bg-black border-gray-800 text-white max-w-md rounded-[28px] p-0 [&>button]:text-white">
+        <div className="flex flex-col gap-4 bg-black p-6 text-white md:p-8">
+          <DialogTitle className="text-center text-xl font-normal text-white [font-family:'Krona_One',Helvetica] md:text-2xl">
+            {t("demoTitle")}
+          </DialogTitle>
+          <p className="text-center text-sm leading-6 text-[#dee9ff] [font-family:'Quicksand',Helvetica]">
+            {t("demoLead")}
+          </p>
+          <p className="text-center text-sm leading-6 text-[#dee9ff] [font-family:'Quicksand',Helvetica]">
+            {t("demoJunk")}
+          </p>
+          <form onSubmit={onSubmit} className="flex flex-col gap-4">
+            <label className="text-sm font-medium text-[#dee9ff] [font-family:'Quicksand',Helvetica]" htmlFor="demo-email">
+              {t("demoEmailLabel")}
+            </label>
+            <input
+              id="demo-email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t("demoEmailPlaceholder")}
+              className="h-11 rounded-[15px] border border-[#828282] bg-white px-4 text-[#323232] [font-family:'Quicksand',Helvetica] placeholder:text-[#828282]"
+            />
+            <button
+              type="submit"
+              disabled={busy}
+              className="h-11 rounded-[22px] bg-[#3879F0] font-medium text-[#dee9ff] [font-family:'Quicksand',Helvetica] hover:opacity-75 disabled:opacity-60"
+            >
+              {busy ? t("demoSending") : t("demoSend")}
+            </button>
+            {message ? (
+              <p className={`text-center text-sm [font-family:'Quicksand',Helvetica] ${ok ? "text-[#b7f7cf]" : "text-red-400"}`}>
+                {message}
+              </p>
+            ) : null}
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   )
