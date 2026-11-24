@@ -77,15 +77,15 @@ export const FrameSubsection = (): JSX.Element => {
                 <path
                   d="M4.5 11H7.5C10 11 11 10 11 7.5V4.5C11 2 10 1 7.5 1H4.5C2 1 1 2 1 4.5V7.5C1 10 2 11 4.5 11Z"
                   stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
                   d="M5 1V11"
                   stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
