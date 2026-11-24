@@ -1,49 +1,55 @@
-import { ChevronDownIcon } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { ChevronDownIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const LANGS = [
-  { code: 'fr', label: 'Français', short: 'FR' },
-  { code: 'en', label: 'English', short: 'EN' },
-  { code: 'ar', label: 'العربية', short: 'AR' },
-] as const
+  { code: "fr", label: "Français", short: "FR" },
+  { code: "en", label: "English", short: "EN" },
+  { code: "ar", label: "العربية", short: "AR" },
+] as const;
 
 function normalizeLang(raw?: string) {
-  const base = String(raw || 'fr').toLowerCase().split('-')[0]
-  return LANGS.some((l) => l.code === base) ? base : 'fr'
+  const base = String(raw || "fr").toLowerCase().split("-")[0];
+  return LANGS.some((l) => l.code === base) ? base : "fr";
 }
 
-export function LanguageSwitcher({ className = '' }: { className?: string }) {
-  const { i18n } = useTranslation()
-  const [open, setOpen] = useState(false)
-  const rootRef = useRef<HTMLDivElement>(null)
-  const current = normalizeLang(i18n.language)
-  const currentMeta = LANGS.find((l) => l.code === current) || LANGS[0]
+export function LanguageSwitcher({
+  className = "",
+  placement = "bottom",
+}: {
+  className?: string;
+  placement?: "top" | "bottom";
+}) {
+  const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const current = normalizeLang(i18n.language);
+  const currentMeta = LANGS.find((l) => l.code === current) || LANGS[0];
 
   useEffect(() => {
-    const lang = normalizeLang(i18n.language)
-    document.documentElement.lang = lang
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
-  }, [i18n.language])
+    const lang = normalizeLang(i18n.language);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
 
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
-      if (!rootRef.current?.contains(e.target as Node)) setOpen(false)
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
     }
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === "Escape") setOpen(false);
     }
-    document.addEventListener('mousedown', onDocClick)
-    document.addEventListener('keydown', onKey)
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
     return () => {
-      document.removeEventListener('mousedown', onDocClick)
-      document.removeEventListener('keydown', onKey)
-    }
-  }, [])
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   function select(code: string) {
-    i18n.changeLanguage(code)
-    setOpen(false)
+    i18n.changeLanguage(code);
+    setOpen(false);
   }
 
   return (
@@ -51,27 +57,27 @@ export function LanguageSwitcher({ className = '' }: { className?: string }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-[5px] relative flex-[0_0_auto]"
+        className="inline-flex items-center gap-[5px] text-[#323232]"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Change language"
       >
-        <img
-          className="relative w-6 h-6"
-          alt=""
-          src="/language-circle.svg"
-        />
-        <span className="relative w-fit [font-family:'Quicksand',Helvetica] font-medium text-grey text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap">
+        <img className="relative w-6 h-6" alt="" src="/language-circle.svg" />
+        <span className="relative w-fit [font-family:'Quicksand',Helvetica] font-medium text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap">
           {currentMeta.short}
         </span>
         <ChevronDownIcon
-          className={`relative w-[21px] h-[21px] transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`relative w-[21px] h-[21px] transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && (
         <ul
           role="listbox"
-          className="absolute right-0 top-[calc(100%+8px)] z-50 min-w-[160px] overflow-hidden rounded-2xl border border-white/80 bg-[#DEEAFF]/backdrop-blur-xl shadow-lg py-1"
+          className={`absolute right-0 z-[70] min-w-[160px] overflow-hidden rounded-2xl border border-[#d5e4ff] bg-white py-1 shadow-lg ${
+            placement === "top"
+              ? "bottom-[calc(100%+8px)]"
+              : "top-[calc(100%+8px)]"
+          }`}
         >
           {LANGS.map((lang) => (
             <li key={lang.code} role="option" aria-selected={lang.code === current}>
@@ -80,8 +86,8 @@ export function LanguageSwitcher({ className = '' }: { className?: string }) {
                 onClick={() => select(lang.code)}
                 className={`w-full px-3 py-2 text-left text-sm font-medium font-['Quicksand'] ${
                   lang.code === current
-                    ? 'bg-[#3879f0] text-indigo-100'
-                    : 'text-[#323232] hover:bg-white/60'
+                    ? "bg-[#3879f0] text-white"
+                    : "text-[#323232] hover:bg-[#DEEAFF]"
                 }`}
               >
                 <span className="inline-flex w-full items-center justify-between gap-3">
@@ -94,5 +100,5 @@ export function LanguageSwitcher({ className = '' }: { className?: string }) {
         </ul>
       )}
     </div>
-  )
+  );
 }

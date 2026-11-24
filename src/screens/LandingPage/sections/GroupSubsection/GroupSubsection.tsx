@@ -19,16 +19,15 @@ export const GroupSubsection = (): JSX.Element => {
   const { scrollToSection } = useScrollContext();
 
   const handleNavClick = (sectionId: string) => {
-    console.log("Navigating to section:", sectionId);
     scrollToSection(sectionId);
   };
 
   return (
     <section
       id={navigationItems[0].id}
-      className="w-full h-auto md:h-[61px] relative flex items-center justify-between px-0 py-2.5"
+      className="w-full h-auto xl:h-[61px] relative flex items-center justify-between gap-3 px-0 py-2.5"
     >
-      <div className="flex items-center gap-2.5">
+      <div className="flex shrink-0 items-center gap-2.5">
         <div className=" w-full h-auto">
           <div className=" w-full h-auto bg-[100%_100%]">
             <img
@@ -48,19 +47,17 @@ export const GroupSubsection = (): JSX.Element => {
 
       <HamburgerMenu />
 
-      <NavigationMenu className="hidden lg:block">
-        <NavigationMenuList className="gap-2 lg:gap-5 px-3 lg:px-5 py-2.5 bg-[#dee9ff66] rounded-[50px] shadow-drop-shadow-100 flex items-center justify-center">
+      <NavigationMenu className="hidden min-w-0 lg:flex">
+        <NavigationMenuList className="gap-2 px-3 py-2 xl:gap-4 xl:px-4 xl:py-2.5 bg-[#dee9ff66] rounded-[50px] shadow-drop-shadow-100 flex items-center justify-center">
           {navigationItems.map((item, index) => {
             if (item.labelKey === "pricing") {
               return (
                 <NavigationMenuItem key={index}>
                   <ContactDialog>
                     <NavigationMenuLink
-                      className={`gap-1 lg:gap-2.5 p-1.5 lg:p-2.5 flex items-center  justify-center rounded-[20px] cursor-pointer opacity-70`}
+                      className="gap-1.5 px-2 py-1.5 xl:gap-2.5 xl:p-2.5 flex items-center justify-center rounded-[20px] cursor-pointer opacity-70"
                     >
-                      <div
-                        className={`relative w-fit mt-[-1.00px] [font-family:'Quicksand',Helvetica] font-medium text-xs lg:text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap text-black`}
-                      >
+                      <div className="relative w-fit mt-[-1.00px] [font-family:'Quicksand',Helvetica] font-medium text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap text-black">
                         {t(item.labelKey)}
                       </div>
                     </NavigationMenuLink>
@@ -72,12 +69,12 @@ export const GroupSubsection = (): JSX.Element => {
               <NavigationMenuItem key={index}>
                 <NavigationMenuLink
                   onClick={() => handleNavClick(item.id)}
-                  className={`gap-1 lg:gap-2.5 p-1.5 lg:p-2.5 flex items-center  justify-center rounded-[20px] cursor-pointer ${
+                  className={`gap-1.5 px-2 py-1.5 xl:gap-2.5 xl:p-2.5 flex items-center justify-center rounded-[20px] cursor-pointer ${
                     activeSection === item.id ? "bg-blue" : "opacity-70"
                   }`}
                 >
                   <div
-                    className={`relative w-fit mt-[-1.00px] [font-family:'Quicksand',Helvetica] font-medium text-xs lg:text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap  ${
+                    className={`relative w-fit mt-[-1.00px] [font-family:'Quicksand',Helvetica] font-medium text-sm text-center tracking-[0] leading-[21px] whitespace-nowrap ${
                       activeSection === item.id
                         ? "text-light-blue"
                         : "text-black"
@@ -92,14 +89,14 @@ export const GroupSubsection = (): JSX.Element => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="inline-flex items-center gap-3 md:gap-[18px] hidden lg:flex">
-        <LanguageSwitcher className="hidden md:inline-flex" />
+      <div className="hidden lg:inline-flex shrink-0 items-center gap-2 xl:gap-[18px]">
+        <LanguageSwitcher />
         <DemoPortalLink className="h-8 px-2.5 py-[5px] bg-[#3879F0] hover:opacity-75 rounded-[20px] inline-flex justify-center items-center gap-2.5">
-          <div className="whitespace-nowrap text-ellipsis overflow-hidden text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
+          <div className="whitespace-nowrap text-center justify-start text-indigo-100 text-sm font-medium font-['Quicksand'] leading-tight">
             {t("demo")}
           </div>
           <img
-            className="relative w-[24px] h-[24px] mt-[-3.95px] mb-[-3.95px]"
+            className="relative w-[24px] h-[24px]"
             alt=""
             src="/vuesax-linear-arrow-right.svg"
           />
