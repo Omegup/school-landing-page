@@ -128,9 +128,17 @@ export const Frame2Subsection = (): JSX.Element => {
           </div>
         </div>
       </footer>
-      <div className="flex h-auto md:h-[50px] items-center justify-center gap-2.5 px-4 md:px-2.5 py-4 md:py-[13px] relative self-stretch w-full bg-light-blue !m-0">
+      <div className="flex h-auto min-h-[50px] items-center justify-center px-4 md:px-2.5 py-4 md:py-[13px] relative self-stretch w-full bg-light-blue !m-0">
         <p className="relative w-fit mt-[-1.00px] font-quicksand-easyread font-[number:var(--quicksand-easyread-font-weight)] text-blue text-xs md:text-[length:var(--quicksand-easyread-font-size)] text-center tracking-[var(--quicksand-easyread-letter-spacing)] leading-[18px] md:leading-[var(--quicksand-easyread-line-height)] [font-style:var(--quicksand-easyread-font-style)]">
-          {t("footer.copyright")}
+          {t("footer.poweredBy")}{" "}
+          <a
+            className="underline-offset-2 hover:underline"
+            href="https://omegup.net"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Omegup
+          </a>
         </p>
       </div>
     </>
